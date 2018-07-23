@@ -5,8 +5,8 @@
     "main": "index.js",
     "scripts": {
         "babel-node": "babel-node --presets=env",
-        "dev": "nodemon --exec npm run babel-node -- ./api/index.js",
-        "build": "babel api -d dist",
+        "dev": "nodemon --exec npm run babel-node -- ./app/index.js",
+        "build": "babel app -d dist",
         "start": "./dist/index.js"
     },
     "author": "",
