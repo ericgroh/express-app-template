@@ -7,7 +7,8 @@
         "babel-node": "babel-node --presets=env",
         "dev": "nodemon --exec npm run babel-node -- ./app/index.js",
         "build": "babel app -d dist",
-        "start": "./dist/index.js"
+        "start": "./dist/index.js",
+        "lint": "./node_modules/.bin/eslint app/**"
     },
     "author": "",
     "license": "ISC",
@@ -28,7 +29,10 @@
     },
     "devDependencies": {
         "babel-cli": "^6.26.0",
+        "babel-eslint": "^8.2.6",
         "babel-preset-env": "^1.7.0",
+        "eslint": "^5.2.0",
+        "eslint-config-google": "^0.9.1",
         "nodemon": "^1.18.3"
     },
     "babel": {
