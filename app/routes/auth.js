@@ -1,20 +1,15 @@
 // import User from '../models/user';
 import UserService from '../libs/UserService';
+import isLoggedIn from '../utils/authentication';
 module.exports = (app, passport) => {
 
-    app.get('/', async(req, res) => {
+    app.get('/',isLoggedIn, async(req, res) => {
         res.render('index.ejs');
-    })
-
-    app.get('/api/getList', async(req,res) => {
-        var list = ["item1", "item2", "item3"];
-        res.json(list);
-        console.log('Sent list of items');
     });
 
     app.get('/login', async(req, res) => {
         res.render('login.ejs', { message: req.flash('loginMessage')});
-    })
+    });
 
     app.post('/login',
       passport.authenticate('local', {
@@ -26,7 +21,7 @@ module.exports = (app, passport) => {
 
     app.get('/signup', async(req, res) => {
         res.render('signup.ejs', { message: ''})
-    })
+    });
 
     app.post('/signup', async(req, res) => {
         const service = new UserService();
@@ -38,7 +33,7 @@ module.exports = (app, passport) => {
         }
 
         res.redirect('/');
-    })
+    });
 
     //other routes..
-}
+};
